@@ -18,36 +18,36 @@
   <img src="https://img.shields.io/badge/license-All%20Rights%20Reserved-red?style=flat-square" alt="All Rights Reserved">
 </p>
 
-# ThornUI
+# VoltilsUI
 
-This documentation is for ThornUI by ThornVe
+This documentation is for VoltilsUI by Voltils
 
-## Loading the ThornUI Library
+## Loading the VoltilsUI Library
 
 ```lua
-local ThornUI = loadstring(game:HttpGet("https://bloxvault.org/load/qLALM"))()
+local VoltilsUI = loadstring(game:HttpGet("https://bloxvault.org/load/qLALM"))()
 ```
 
 ## Initializing the UI
 
 ```lua
-local UI = ThornUI:Init({
-   title = "ThornUI",
-   company = "ThornVe",
+local UI = VoltilsUI:Init({
+   title = "VoltilsUI",
+   company = "Voltils",
    DiscordInvite = "discord.gg/78yYmtaeg4",
    LogoIcon = "71005755041834",
    InterfaceKey = Enum.KeyCode.RightShift,
    RainbowEnabled = true,
-   Hints = {"Introducing you to ThornUI!", "Join our Discord for Support"},
+   Hints = {"Introducing you to VoltilsUI!", "Join our Discord for Support"},
    KeySystem = false,
    KeySettings = {
-      Title = "ThornUI",
+      Title = "VoltilsUI",
       Subtitle = "Key System",
       Note = "Join the Discord to get the key.",
-      FileName = "ThornUIKey",
+      FileName = "VoltilsUIKey",
       RememberKey = true,
       GrabKeyFromSite = false,
-      ValidKeys = {"thorn-123", "thorn-67"},
+      ValidKeys = {"Voltils-123", "Voltils-67"},
       GetKeyLink = "https://example.com/get-key",
    },
 })
@@ -137,14 +137,14 @@ local Separator = Main:NewSeperator() -- spelled this way in source
 ## Notifying the user
 
 ```lua
-UI:Notify("ThornUI loaded", 3, "success") -- types: "notification", "success", "alert", "error"
+UI:Notify("VoltilsUI loaded", 3, "success") -- types: "notification", "success", "alert", "error"
 ```
 
 ## Creating a Watermark
 
 ```lua
-local Watermark = UI:Watermark("ThornUI | " .. UI:GetUsername())
-Watermark:SetText("ThornUI | Ready")
+local Watermark = UI:Watermark("VoltilsUI | " .. UI:GetUsername())
+Watermark:SetText("VoltilsUI | Ready")
 Watermark:Hide()
 Watermark:Show()
 Watermark:Remove()
