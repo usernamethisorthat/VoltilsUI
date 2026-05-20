@@ -1,6 +1,4 @@
-<img width="862" height="611" alt="image" src="https://github.com/user-attachments/assets/9f18348d-e348-4ebf-85b5-941ba00e0e51" />
-
-
+<img width="862" height="611" alt="image" src="https://github.com/usernamethisorthat/VoltilsUI/blob/main/image.webp?raw=true" />
 
 
 
