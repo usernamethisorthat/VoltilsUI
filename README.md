@@ -16,36 +16,42 @@
   <img src="https://img.shields.io/badge/license-All%20Rights%20Reserved-red?style=flat-square" alt="All Rights Reserved">
 </p>
 
-# VoltilsUI
+# VoltisUI
 
-This documentation is for VoltilsUI by Voltils
+This documentation is for VoltisUI by Voltis
 
-## Loading the VoltilsUI Library
+## Loading the VoltisUI Library
 
 ```lua
-local VoltilsUI = loadstring(game:HttpGet("https://bloxvault.org/load/qLALM"))()
+local VoltisUI = loadstring(game:HttpGet("https://bloxvault.org/load/qLALM"))()
 ```
 
 ## Initializing the UI
 
 ```lua
-local UI = VoltilsUI:Init({
-   title = "VoltilsUI",
-   company = "Voltils",
+local UI = VoltisUI:Init({
+   title = "VoltisUI",
+   company = "Voltis",
    DiscordInvite = "discord.gg/78yYmtaeg4",
-   LogoIcon = "71005755041834",
+   LogoIcon = "93061773121162",
+   IntroSoundId = "rbxassetid://12221967",
+   backgroundTransparency = 0,
+   SelectorUserImages = true,
+   Resizable = true,
+   WindowMinSize = Vector2.new(360, 300),
+   WindowMaxSize = Vector2.new(900, 620),
    InterfaceKey = Enum.KeyCode.RightShift,
    RainbowEnabled = true,
-   Hints = {"Introducing you to VoltilsUI!", "Join our Discord for Support"},
+   Hints = {"Introducing you to VoltisUI!", "Join our Discord for Support"},
    KeySystem = false,
    KeySettings = {
-      Title = "VoltilsUI",
+      Title = "VoltisUI",
       Subtitle = "Key System",
       Note = "Join the Discord to get the key.",
-      FileName = "VoltilsUIKey",
+      FileName = "VoltisUIKey",
       RememberKey = true,
       GrabKeyFromSite = false,
-      ValidKeys = {"Voltils-123", "Voltils-67"},
+      ValidKeys = {"Voltis-123", "Voltis-67"},
       GetKeyLink = "https://example.com/get-key",
    },
 })
@@ -61,6 +67,29 @@ local Main = UI:NewTab("Main", "home") -- icon: asset ID or Lucide name (https:/
 
 ```lua
 local Section = Main:NewSection("Player")
+```
+
+## Split Sections
+
+```lua
+Main:EnableSplitSections({
+   Sides = 2, -- set to 1 for one scrollable side
+})
+
+Main:NewSection("Autofarming", "Left")
+Main:NewToggle("Auto Farm", false, function(enabled) end)
+Main:NewSlider("Farm Radius", " studs", false, "/", {min = 25, max = 250, default = 75}, function(value) end)
+
+Main:NewSection("Targeting", "Left")
+Main:NewTextbox("Target", "", "Username...", "small", true, false, function(text) end)
+
+Main:NewSection("Flying", "Right")
+Main:NewToggle("Fly", false, function(enabled) end)
+
+Main:NewSection("Misc", "Right")
+Main:NewButton("Rejoin", function()
+   UI:Rejoin()
+end)
 ```
 
 ## Creating a Label
@@ -110,6 +139,13 @@ end)
 local Selector = Main:NewSelector("Mode", "Legit", {"Legit", "Rage", "Silent"}, function(option)
    print("Selected:", option)
 end)
+
+local PlayerSelector = Main:NewSelector("Players", UI:GetUserId(), {
+   UI:GetUserId(),
+   {Text = UI:GetUsername(), UserId = UI:GetUserId()},
+}, function(option)
+   print("Selected player:", option)
+end)
 ```
 
 ## Creating a Slider
@@ -118,6 +154,18 @@ end)
 local Slider = Main:NewSlider("WalkSpeed", " studs", false, "/", {min = 16, max = 100, default = 16}, function(value)
    print("New speed:", value)
 end)
+```
+
+## Creating a Color Picker
+
+```lua
+local ColorPicker = Main:NewColorPicker("ESP Color", Color3.fromRGB(255, 255, 255), function(color, transparency)
+   print("Color:", color, "Transparency:", transparency)
+end, 0)
+
+ColorPicker:Set(Color3.fromRGB(255, 0, 0))
+ColorPicker:SetTransparency(0.25)
+ColorPicker:SetExpanded(false)
 ```
 
 ## Creating a Paragraph
@@ -135,14 +183,14 @@ local Separator = Main:NewSeperator() -- spelled this way in source
 ## Notifying the user
 
 ```lua
-UI:Notify("VoltilsUI loaded", 3, "success") -- types: "notification", "success", "alert", "error"
+UI:Notify("VoltisUI loaded", 3, "success") -- types: "notification", "success", "alert", "error"
 ```
 
 ## Creating a Watermark
 
 ```lua
-local Watermark = UI:Watermark("VoltilsUI | " .. UI:GetUsername())
-Watermark:SetText("VoltilsUI | Ready")
+local Watermark = UI:Watermark("VoltisUI | " .. UI:GetUsername())
+Watermark:SetText("VoltisUI | Ready")
 Watermark:Hide()
 Watermark:Show()
 Watermark:Remove()
@@ -153,8 +201,10 @@ Watermark:Remove()
 ```lua
 UI:SetTitle("New Title")
 UI:SetCompany("New Company")
-UI:SetLogoIcon("71005755041834")
+UI:SetLogoIcon("93061773121162")
+UI:SetBackgroundTransparency(0.25)
 UI:SetKeybind(Enum.KeyCode.LeftShift)
+UI:OpenDiscordInvite()
 UI:ShowUI(true)
 UI:Remove()
 UI:GetUsername()
@@ -169,11 +219,4 @@ UI:RoundNumber(2, 3.14159)
 
 ## Config Options
 
-`title`, `company`, `DiscordInvite`, `LogoIcon`, `RainbowEnabled`, `FieldOfView`, `InterfaceKey`, `KeySystem`, `KeySettings`, `Hints`, `Debug`, `transparency`, `backgroundColor`, `headerColor`, `companyColor`, `acientColor`, `darkGray`, `lightGray`, `Font`, `rainbowColors`
-
-## Notes
-
-- Removes previous `_G.DepsoGUI` on load
-- Main UI opens automatically after intro animation
-- Default toggle key: `RightShift` (keyboard) / `P` (touch)
-- Rich text enabled on labels, buttons, notifications, selectors
+`title`, `company`, `DiscordInvite`, `DiscordInviteCode`, `LogoIcon`, `IntroSoundId`, `IntroSoundVolume`, `RainbowEnabled`, `FieldOfView`, `InterfaceKey`, `KeySystem`, `KeySettings`, `Hints`, `Debug`, `transparency`, `backgroundTransparency`, `SelectorUserImages`, `backgroundColor`, `headerColor`, `companyColor`, `acientColor`, `darkGray`, `lightGray`, `Font`, `rainbowColors`
