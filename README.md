@@ -18,20 +18,20 @@
 
 # [![Voltils UI](https://uibin.orqan.xyz/api/card?id=b76754ce-0bb9-42e0-ab3b-f27f3ffe2888&theme=blue)](https://uibin.orqan.xyz/library/b76754ce-0bb9-42e0-ab3b-f27f3ffe2888) 
 
-This documentation is for VoltisUI by Voltis
+This documentation is for VoltilsUI by Voltils
 
-## Loading the VoltisUI Library
+## Loading the VoltilsUI Library
 
 ```lua
-local VoltisUI = loadstring(game:HttpGet("https://bloxvault.org/load/qLALM"))()
+local VoltilsUI = loadstring(game:HttpGet("https://bloxvault.org/load/qLALM"))()
 ```
 
 ## Initializing the UI
 
 ```lua
-local UI = VoltisUI:Init({
-   title = "VoltisUI",
-   company = "Voltis",
+local UI = VoltilsUI:Init({
+   title = "VoltilsUI",
+   company = "Voltils",
    DiscordInvite = "discord.gg/78yYmtaeg4",
    LogoIcon = "93061773121162",
    IntroSoundId = "rbxassetid://12221967",
@@ -42,16 +42,16 @@ local UI = VoltisUI:Init({
    WindowMaxSize = Vector2.new(900, 620),
    InterfaceKey = Enum.KeyCode.RightShift,
    RainbowEnabled = true,
-   Hints = {"Introducing you to VoltisUI!", "Join our Discord for Support"},
+   Hints = {"Introducing you to VoltilsUI!", "Join our Discord for Support"},
    KeySystem = false,
    KeySettings = {
-      Title = "VoltisUI",
+      Title = "VoltilsUI",
       Subtitle = "Key System",
       Note = "Join the Discord to get the key.",
-      FileName = "VoltisUIKey",
+      FileName = "VoltilsUIKey",
       RememberKey = true,
       GrabKeyFromSite = false,
-      ValidKeys = {"Voltis-123", "Voltis-67"},
+      ValidKeys = {"Voltils-123", "Voltils-67"},
       GetKeyLink = "https://example.com/get-key",
    },
 })
@@ -183,14 +183,14 @@ local Separator = Main:NewSeperator() -- spelled this way in source
 ## Notifying the user
 
 ```lua
-UI:Notify("VoltisUI loaded", 3, "success") -- types: "notification", "success", "alert", "error"
+UI:Notify("VoltilsUI loaded", 3, "success") -- types: "notification", "success", "alert", "error"
 ```
 
 ## Creating a Watermark
 
 ```lua
-local Watermark = UI:Watermark("VoltisUI | " .. UI:GetUsername())
-Watermark:SetText("VoltisUI | Ready")
+local Watermark = UI:Watermark("VoltilsUI | " .. UI:GetUsername())
+Watermark:SetText("VoltilsUI | Ready")
 Watermark:Hide()
 Watermark:Show()
 Watermark:Remove()
